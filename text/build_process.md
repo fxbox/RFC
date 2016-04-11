@@ -117,6 +117,30 @@ Foxbox would be the main entry point for contributors and we could describe the 
 | Unique contribution flow   | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark:   |
 | Set up effort              | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark:   |
 
+## Build times
+
+### Environment
+
+Tests performed on a [Lenovo X1 Carbon Gen2](http://shop.lenovo.com/us/en/laptops/thinkpad/x-series/x1-carbon-2/) ([4 cores](http://ark.intel.com/products/76616/Intel-Core-i7-4600U-Processor-4M-Cache-up-to-3_30-GHz?q=Core%20i7%204600u)).
+
+Revisions: [1 repo / 1 crate](https://github.com/JohanLorenzo/foxbox/commit/94c748b6794d2df3461c8318cceef40012fef4f8), [1 repo / many crates](https://github.com/JohanLorenzo/foxbox/commit/84e7dec0f434f6c63b65543b56d50e2b88debe07)
+
+### Benchmark methodology
+
+Commands:
+* build `time cargo build -j 4`. Total time was used.
+* set up for a clobber build `cargo clean && cargo fetch`.
+
+Each build type was run 3 times. Here are the average values. See [this spreadsheet](https://docs.google.com/spreadsheets/d/1MAmlmI7EMZOUYNfKynKg3BcaH6-ZNMdJm0Wh7AAgkQQ) to see the raw data.
+
+| Compile type                                 | 1 repo / 1 crate   | 1 repo / many crates |
+| -------------------------------------------- | ------------------ | -------------------- |
+| Clobber (downloads already performed)        | 0:03:00            | 0:03:01              |
+| 1 println added/removed in taxonomy          | 0:01:13            | 0:01:15              |
+| 1 println added/removed in openzwave-adapter | 0:01:13            | 0:00:54              |
+| 1 println added/removed in main.rs           | 0:01:25            | 0:00:49              |
+
+
 ## Conclusion: Chosen Solution
 
 TBD
