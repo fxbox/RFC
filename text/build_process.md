@@ -143,4 +143,4 @@ Each build type was run 3 times. Here are the average values. See [this spreadsh
 
 ## Conclusion: Chosen Solution
 
-TBD
+Based on the comments in https://github.com/fxbox/RFC/pull/13, we decided to go with 1 repo / many crates
